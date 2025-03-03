@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import Transactions from "./pages/Transaction";
 import GoalTracking from "./pages/goalsetting";
 import ExpenseSplit from "./pages/expensesplit";
+import Budgeting from "./pages/Budgeting";
+import CustomReports from "./pages/CustomReport";
 import { TransactionProvider } from "./contexts/TransactionContext";
 import TransactionManagement from "./pages/TransactionManagement";
 import Chart from "./pages/Chart";
@@ -32,6 +34,8 @@ const App = () => {
         <Route path="/viewtransaction" element={<ProtectedRoute element={<TransactionManagement />} />} />
         <Route path="/charts" element={<ProtectedRoute element={<Chart />} />} />
         <Route path="/dues" element={<ProtectedRoute element={<Dues />} />} />
+        <Route path="/budgeting" element={<ProtectedRoute element={<Budgeting />} />} />
+        <Route path="/customreport" element={<ProtectedRoute element={<CustomReports />} />} />
       </Routes>
     </TransactionProvider>
   );

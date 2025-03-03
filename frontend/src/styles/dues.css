@@ -1,5 +1,4 @@
 
-/* General Styles */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f7f6;
@@ -42,7 +41,6 @@ h3 {
   margin-bottom: 15px;
 }
 
-/* Add Due Section */
 .add-due {
   background: #ecf0f1;
   padding: 20px;
@@ -94,7 +92,7 @@ h3 {
   background: #2980b9;
 }
 
-/* Dues List Section */
+
 .dues-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -151,7 +149,7 @@ h3 {
 .due-card button:hover {
   background: #c0392b;
 }
-/* Modal Overlay */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -165,14 +163,14 @@ h3 {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Modal */
+
 .modal {
   background: #fff;
-  padding: 15px; /* Reduced padding */
+  padding: 15px;
   border-radius: 8px;
   width: 90%;
   max-width: 500px;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
   animation: slideInUp 0.5s ease-in-out;
 }
 
@@ -190,7 +188,7 @@ h3 {
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  box-sizing: border-box; /* Include padding and border in width */
+  box-sizing: border-box;
 }
 
 .modal input:focus,
@@ -223,14 +221,13 @@ h3 {
   background: #7f8c8d;
 }
 
-/* Modal */
 .modal {
   background: #fff;
-  padding: 15px; /* Reduced padding */
+  padding: 15px;
   border-radius: 8px;
   width: 90%;
   max-width: 500px;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
   animation: slideInUp 0.5s ease-in-out;
 }
 
@@ -248,7 +245,7 @@ h3 {
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  box-sizing: border-box; /* Include padding and border in width */
+  box-sizing: border-box;
 }
 
 .modal input:focus,

@@ -58,7 +58,7 @@ const ExpenseSplit = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setExpenses(response.data.debts); // Update to set debts instead of expenses
+      setExpenses(response.data.debts);
     } catch (error) {
       console.error("Error fetching expenses:", error);
     }
@@ -76,7 +76,7 @@ const ExpenseSplit = () => {
         }
       );
 
-      console.log("Fetched Transactions:", response.data); // Debugging
+      console.log("Fetched Transactions:", response.data);
 
       const transactionsWithPayerDetails = await Promise.all(
         response.data.map(async (tx) => {
@@ -190,10 +190,8 @@ const handleAddTransaction = async () => {
     return;
   }
 
-  // Convert payer to a number
   const payerId = Number(transactionData.payer);
 
-  // Validate payer
   const isPayerValid = selectedGroup.members.some(
     (member) => member.id === payerId
   );
@@ -202,7 +200,6 @@ const handleAddTransaction = async () => {
     return;
   }
 
-  // Log the transaction data for debugging
   console.log("Transaction Data:", {
     amount: parseFloat(transactionData.amount),
     description: transactionData.description,
@@ -217,14 +214,14 @@ const handleAddTransaction = async () => {
       {
         amount: parseFloat(transactionData.amount),
         description: transactionData.description,
-        payer: payerId, // Ensure this is correctly passed
+        payer: payerId,
         participants: transactionData.participants,
         group: selectedGroup.id,
       },
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
-    console.log("Transaction added successfully:", response.data); // Debugging
+    console.log("Transaction added successfully:", response.data);
 
     fetchTransactions();
     setTransactionData({ amount: "", description: "", payer: "", participants: [] });
@@ -295,7 +292,6 @@ const handleAddTransaction = async () => {
                 <li
                   key={group.id}
                   onClick={async () => {
-                    // Fetch user details for each member
                     const membersWithDetails = await Promise.all(
                       group.members.map(async (memberId) => {
                         const userDetails = await fetchUserDetails(memberId);
@@ -303,7 +299,6 @@ const handleAddTransaction = async () => {
                       })
                     );
 
-                    // Update the selected group with member details
                     setSelectedGroup({
                       ...group,
                       members: membersWithDetails,
@@ -321,7 +316,6 @@ const handleAddTransaction = async () => {
           <div className="group-details-section">
             <h2>{selectedGroup.name}</h2>
 
-            {/* Display Members of the Selected Group */}
             <div className="group-members-section">
               <h3>Members</h3>
               <ul>
@@ -409,7 +403,6 @@ const handleAddTransaction = async () => {
               <button onClick={handleAddTransaction}>Add Transaction</button>
             </div>
 
-            {/* Display Debts */}
             <div className="debts-section">
               <h3>Debts</h3>
               <table>

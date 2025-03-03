@@ -5,7 +5,7 @@ import { Chart }            from 'react-chartjs-2'
 
 const MonthlyChart = ({ monthlyData,thememode }) => {
  
-  // -------------colors for the lightTheme -------------------- 
+
   const lightTheme = {
     colorText: 'black',
     income: 'rgba(75,192,192,0.5)', 
@@ -14,7 +14,7 @@ const MonthlyChart = ({ monthlyData,thememode }) => {
     expensesBorder: 'rgba(255,99,132,1)',
   };
 
-  //  ---------------- colors for the darkTheme ----------------------- 
+
 
   const darkTheme = {
     colorText: 'white',
@@ -24,7 +24,7 @@ const MonthlyChart = ({ monthlyData,thememode }) => {
     expensesBorder: 'rgba(165,42,42,1)',
   };
 
-    // ---------- object according to theme -------------- 
+
 
   const colors = thememode === 'dark' ? darkTheme : lightTheme;
 
@@ -33,7 +33,7 @@ const MonthlyChart = ({ monthlyData,thememode }) => {
     labels: monthlyData.map(data=>data.month),
     datasets: [
 
-         // ------------- Income ------------------  
+
          
       {
         label: 'Income',
@@ -42,7 +42,7 @@ const MonthlyChart = ({ monthlyData,thememode }) => {
         borderWidth: 1,
         data: monthlyData.map(data=>data.total_income),
       },
-      // ------------- Expense ---------------------- 
+
       {
         label: 'Expenses',
         backgroundColor: colors.expenses,
@@ -53,7 +53,7 @@ const MonthlyChart = ({ monthlyData,thememode }) => {
     ],
   };
  
-    // Using the plugins to change the color in dark mode
+
     const options = {
       scales: {
         x: {

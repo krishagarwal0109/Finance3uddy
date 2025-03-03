@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f7f6;
@@ -31,7 +31,6 @@ body {
   }
 }
 
-/* Headings */
 h2 {
   text-align: center;
   color: #2c3e50;
@@ -47,7 +46,6 @@ h3 {
   font-weight: 500;
 }
 
-/* Add Goal Section */
 .add-goal {
   background: #ffffff;
   padding: 20px;
@@ -69,14 +67,14 @@ h3 {
 }
 
 .add-goal input {
-  width: calc(100% - 20px); /* Adjust for padding */
+  width: calc(100% - 20px);
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
 }
 
 .add-goal input:focus {
@@ -95,8 +93,8 @@ h3 {
   font-size: 1rem;
   font-weight: 500;
   transition: background 0.3s ease, transform 0.2s ease;
-  width: 100%; /* Make button full width */
-  box-sizing: border-box; /* Include padding in width */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .add-goal button:hover {
@@ -104,7 +102,6 @@ h3 {
   transform: translateY(-2px);
 }
 
-/* Goals List Section */
 .goals-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -187,7 +184,6 @@ h3 {
   background: #c0392b;
 }
 
-/* Modal Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -228,14 +224,14 @@ h3 {
 }
 
 .modal input {
-  width: calc(100% - 20px); /* Adjust for padding */
+  width: calc(100% - 20px);
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
 }
 
 .modal input:focus {
@@ -255,8 +251,8 @@ h3 {
   font-size: 1rem;
   font-weight: 500;
   transition: background 0.3s ease, transform 0.2s ease;
-  width: calc(50% - 10px); /* Adjust for margin */
-  box-sizing: border-box; /* Include padding in width */
+  width: calc(50% - 10px);
+  box-sizing: border-box;
 }
 
 .modal button:hover {
