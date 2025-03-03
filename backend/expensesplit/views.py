@@ -66,28 +66,23 @@ class TransactionListCreateView(generics.ListCreateAPIView):
         group_id = self.kwargs["id"]
         group = get_object_or_404(Group, id=group_id)
 
-        # Ensure the user is a member of the group
         if self.request.user not in group.members.all():
             raise serializers.ValidationError("You are not a member of this group.")
 
-        # Get the payer from the request data
         payer_id = self.request.data.get("payer")
         if not payer_id:
             raise serializers.ValidationError("Payer is required.")
 
-        # Validate payer
         payer = User.objects.filter(id=payer_id).first()
         if not payer or payer not in group.members.all():
             raise serializers.ValidationError("Invalid payer.")
 
-        # Validate participants
         participants_data = self.request.data.get("participants", [])
         participants = User.objects.filter(id__in=participants_data)
 
         if participants.count() != len(participants_data):
             raise serializers.ValidationError("One or more participants do not exist.")
 
-        # Save the transaction with the specified payer
         transaction = serializer.save(group=group, payer=payer)
         transaction.participants.add(*participants)
 
@@ -97,48 +92,40 @@ class GroupExpenseView(APIView):
     def get(self, request, id):
         group = get_object_or_404(Group, id=id)
 
-        # Ensure the user is a member of the group
         if request.user not in group.members.all():
             return Response({"error": "You are not a member of this group."}, status=status.HTTP_403_FORBIDDEN)
 
-        # Fetch all transactions for the group
         transactions = Transaction.objects.filter(group=group)
 
-        # Initialize a dictionary to track debts between members
-        # Format: {debtor_id: {creditor_id: amount}}
         debts = {
             debtor.id: {creditor.id: 0 for creditor in group.members.all() if creditor.id != debtor.id}
             for debtor in group.members.all()
         }
 
-        # Process each transaction
         for transaction in transactions:
             payer_id = transaction.payer.id
             amount = transaction.amount
             participants = transaction.participants.all()
 
-            # Calculate each participant's share (excluding the payer)
             if participants.count() > 0:
                 share = amount / participants.count()
                 for participant in participants:
-                    if participant.id != payer_id:  # Exclude the payer
-                        # Participant owes the payer
+                    if participant.id != payer_id:
+
                         debts[participant.id][payer_id] += share
 
-        # Simplify the debts structure for the response
         debt_summary = []
         for debtor_id, debt_to_others in debts.items():
             debtor = User.objects.get(id=debtor_id)
             for creditor_id, amount in debt_to_others.items():
-                if amount > 0:  # Only include debts where the amount is positive
+                if amount > 0:
                     creditor = User.objects.get(id=creditor_id)
                     debt_summary.append({
                         "debtor": debtor.username,
                         "creditor": creditor.username,
-                        "amount": round(amount, 2),  # Round to 2 decimal places
+                        "amount": round(amount, 2),
                     })
 
-        # Return the debt summary
         return Response({
             "group": group.name,
             "debts": debt_summary,
