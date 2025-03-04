@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'goals',
     'expensesplit',
     'dues',
+    'loans',
 ]
 
 MIDDLEWARE = [

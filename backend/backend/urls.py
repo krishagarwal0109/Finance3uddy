@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/expensesplit/', include('expensesplit.urls')),
     path('api/dues/', include('dues.urls')),
     path('api/users/', include('authentication.urls')),
+    path('api/loans/', include('loans.urls')),
 
 
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
