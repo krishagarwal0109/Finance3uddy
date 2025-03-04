@@ -14,6 +14,7 @@ import { TransactionProvider } from "./contexts/TransactionContext";
 import TransactionManagement from "./pages/TransactionManagement";
 import Chart from "./pages/Chart";
 import Dues from "./pages/Dues";
+import LoanPlatform from "./pages/Loan";
 
 const ProtectedRoute = ({ element }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/dues" element={<ProtectedRoute element={<Dues />} />} />
         <Route path="/budgeting" element={<ProtectedRoute element={<Budgeting />} />} />
         <Route path="/customreport" element={<ProtectedRoute element={<CustomReports />} />} />
+        <Route path="/loans" element={<ProtectedRoute element={<LoanPlatform />} />} />
       </Routes>
     </TransactionProvider>
   );

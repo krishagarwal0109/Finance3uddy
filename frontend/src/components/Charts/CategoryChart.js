@@ -60,7 +60,7 @@ const CategoryChart = ({ categoryData, thememode }) => {
   const options = {
     maintainAspectRatio: true,
     responsive: true,
-    aspectRatio: 2,
+    aspectRatio: 4,
     plugins: {
       legend: {
         position: 'bottom',
