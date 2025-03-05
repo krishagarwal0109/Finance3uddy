@@ -4,19 +4,24 @@ import '../styles/home.css';
 
 const LandingPage = () => {
     const navigate = useNavigate();
-
+    const backgroundImage = {
+        backgroundImage: `url(${process.env.PUBLIC_URL}/dashs.jpg)`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      };
     return (
-        <div className="landing-container">
+        <div className="landing-container" style={backgroundImage}>
+
             <div className="hero-section">
                 <div className="content">
-                    <h1>Welcome to Finance3uddy</h1>
-                    <p>Your Personal Finance Manager</p>
+                    <h1>Finance3uddy</h1>
+                    <p>Your Ultimate Personal Finance Companion</p>
                     <p className="subtext">
-                        Take control of your finances with ease. Track expenses, manage income, and achieve your financial goals.
+                        Track your income and expenses, manage budgets, set financial goals, and gain insights into your spending habits. Take control of your financial future today!
                     </p>
                     <div className="buttons">
-                        <button onClick={() => navigate('/login')} className="login-btn">Login</button>
-                        <button onClick={() => navigate('/signup')} className="signup-btn">Signup</button>
+                        <button onClick={() => navigate('/login')} className="login-btn">Get Started</button>
+                        <button onClick={() => navigate('/signup')} className="signup-btn">Create Account</button>
                     </div>
                 </div>
             </div>
@@ -26,11 +31,11 @@ const LandingPage = () => {
                 <div className="features-grid">
                     <div className="feature-card">
                         <h3>📊 Expense Splitting</h3>
-                        <p>"Split expenses effortlessly-track, share, and settle in seconds!"</p>
+                        <p>"Split expenses effortlessly—track, share, and settle in seconds!"</p>
                     </div>
                     <div className="feature-card">
                         <h3>💰 Transactions</h3>
-                        <p>Record, track, and manage all your transactions effortlessly</p>
+                        <p>Record, track, and manage all your transactions effortlessly.</p>
                     </div>
                     <div className="feature-card">
                         <h3>📈 Financial Reports</h3>
