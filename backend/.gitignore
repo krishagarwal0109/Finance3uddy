@@ -1,5 +1,3 @@
-# Ignore database
-db.sqlite3
 
 # Ignore Python cache files
 *.pyc
@@ -8,3 +6,6 @@ __pycache__/
 # Ignore all __pycache__ directories inside any subdirectory
 **/__pycache__/
 
+.env
+
+env/
