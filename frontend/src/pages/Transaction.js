@@ -30,7 +30,7 @@ const Transactions = () => {
   
     Papa.parse(csvFile, {
       complete: async (result) => {
-        const parsedData = result.data.slice(1);
+        const parsedData = result.data.slice(1); 
         const transactionsToAdd = parsedData
           .map((row) => {
             const [date, type, category, amount, desc] = row;
@@ -38,7 +38,7 @@ const Transactions = () => {
             const parsedDate = new Date(date);
             if (isNaN(parsedDate.getTime())) {
               console.error(`Invalid date format: ${date}`);
-              return null;
+              return null; 
             }
   
             return {
@@ -129,8 +129,21 @@ const Transactions = () => {
 
   const token = getAuthToken();
 
+  const backgroundImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/trans1.png)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+  const transactionImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/transco.jpg)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
   return (
-    <div className="transactions-container">
+
+    <div className="transactions-container" style={transactionImage} >
+    <div className="animated-background" style={backgroundImage}></div>
+
       <h2>Transactions</h2>
 
       {!token ? (

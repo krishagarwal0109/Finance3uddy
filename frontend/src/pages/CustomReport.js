@@ -36,12 +36,12 @@ const CustomReports = () => {
     let reportData;
     if (reportType === "summary") {
       const totalIncome = filteredTransactions
-        .filter(t => t.type === "income")
-        .reduce((sum, t) => sum + t.amount, 0);
+          .filter(t => t.type === "income")
+          .reduce((sum, t) => sum + parseFloat(t.amount), 0);
 
       const totalExpense = filteredTransactions
-        .filter(t => t.type === "expense")
-        .reduce((sum, t) => sum + t.amount, 0);
+          .filter(t => t.type === "expense")
+          .reduce((sum, t) => sum + parseFloat(t.amount), 0);
 
       reportData = {
         totalIncome,
@@ -84,8 +84,20 @@ const CustomReports = () => {
     document.body.removeChild(link);
   };
 
+ const backgroundImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/transco.jpg)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }; 
+  const bgImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/trans1.png)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
   return (
-    <div className="custom-reports-container">
+    <div className="custom-reports-container" style={backgroundImage}>
+      <div className="animated-background" style={bgImage}></div>
+
       <h2 className="page-title">Custom Reports</h2>
 
       <div className="controls">
@@ -145,11 +157,20 @@ const CustomReports = () => {
         <div className="report-results animated-fade-in">
           <h3 className="report-title">Report Results</h3>
           {reportType === "summary" ? (
-            <div className="summary-report">
-              <p>Total Income: ₹{generatedReport.totalIncome}</p>
-              <p>Total Expense: ₹{generatedReport.totalExpense}</p>
-              <p>Net Savings: ₹{generatedReport.netSavings}</p>
-            </div>
+              <div className="summary-report">
+                  <div className="summary-card">
+                      <h4>Total Income</h4>
+                      <p className="income">₹{generatedReport.totalIncome.toFixed(2)}</p>
+                  </div>
+                  <div className="summary-card">
+                      <h4>Total Expense</h4>
+                      <p className="expense">₹{generatedReport.totalExpense.toFixed(2)}</p>
+                  </div>
+                  <div className="summary-card">
+                      <h4>Net Savings</h4>
+                      <p className="net-savings">₹{generatedReport.netSavings.toFixed(2)}</p>
+                  </div>
+             </div>
           ) : (
             <div className="detailed-report">
              {(reportType === "detailed" ? generatedReport : generatedReport.transactions)?.map(transaction => (

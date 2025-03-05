@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+
 import "../styles/expensesplit.css";
 
 const ExpenseSplit = () => {
@@ -242,10 +243,17 @@ const ExpenseSplit = () => {
     value: user.id,
     label: user.username,
   }));
-
+  const backgroundImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/trans1.png)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+  
+  <div className="animated-background" style={backgroundImage}></div>
+  
   return (
     <div className="expense-split-container">
-      <div className="animated-background"></div>
+    <div className="animated-background" style={backgroundImage}></div>
 
       <div className="dashboard-content">
         <h1>Expense Split</h1>

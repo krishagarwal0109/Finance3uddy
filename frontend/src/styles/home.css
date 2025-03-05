@@ -1,98 +1,157 @@
+
 .landing-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #6e8efb, #a777e3);
     color: white;
-    text-align: center;
-    position: relative;
+    font-family: 'Arial', sans-serif;
     overflow: hidden;
 }
 
-@keyframes financeGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.animated-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-45deg, #6e8efb, #a777e3, #ff7eb3, #ff758c);
-    background-size: 400% 400%;
-    animation: financeGlow 8s ease infinite;
-    z-index: -1;
-}
-
-.bar {
-    width: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    transition: height 0.8s ease-in-out;
-}
-
-
-.content {
-    max-width: 500px;
-}
-
-.content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.buttons {
+.hero-section {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(110, 142, 251, 0.9), rgba(167, 119, 227, 0.9));
+    position: relative;
+    margin-bottom: 0px;
 }
 
-button {
-    padding: 10px 20px;
+.hero-section .content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-section .subtext {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+.hero-section .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.hero-section button {
+    margin-bottom:2px;
+    padding: 12px 24px;
     font-size: 1rem;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
     transition: 0.3s;
 }
 
-.login-btn {
+.hero-section .login-btn {
     background-color: #ffffff;
     color: #6e8efb;
 }
 
-.signup-btn {
+.hero-section .signup-btn {
     background-color: #ff7eb3;
     color: white;
 }
 
-button:hover {
-    opacity: 0.8;
+.hero-section button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.features-section {
+    padding: 20px 20px 60px 20px;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #6e8efb;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #6e8efb;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #666;
 }
 
 .footer {
     width: 100%;
-    position: absolute;
-    bottom: 20px; 
+    padding: 20px;
+    background-color: #2c3034;
+    color: white;
     text-align: center;
 }
 
-.footer h2 {
-    font-size: 1.8rem;
-    margin: 0;
+.footer p {
+    margin: 5px 0;
+    font-size: 1rem;
 }
 
-.footer p {
-    font-size: 1.2rem;
-    margin: 5px 0;
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

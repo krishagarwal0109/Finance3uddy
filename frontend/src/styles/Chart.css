@@ -36,7 +36,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
-
 .pie-charts {
   display: flex;
   justify-content: space-between;
@@ -49,15 +48,21 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  text-align: center;
+}
+
+.pie-charts .chart-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin-bottom: 15px;
 }
 
 @media (max-width: 768px) {
-  .line-charts,
   .pie-charts {
     flex-direction: column;
   }
 
-  .line-charts .chart-card,
   .pie-charts .chart-card {
     margin-bottom: 20px;
   }

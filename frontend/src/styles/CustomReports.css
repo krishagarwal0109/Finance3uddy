@@ -1,3 +1,47 @@
+.summary-report {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.summary-card h4 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.summary-card .income {
+  color: #28a745;
+}
+
+.summary-card .expense {
+  color: #dc3545;
+}
+
+.summary-card .net-savings {
+  color: #007bff;
+}
 .custom-reports-container {
     padding: 2rem;
     max-width: 1200px;
@@ -40,14 +84,14 @@
   
   .date-input:focus,
   .select-input:focus {
-    border-color: #007bff;
+    border-color: #a632db;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
   }
   
   .generate-button,
   .export-button {
     padding: 0.75rem 1.5rem;
-    background: #007bff;
+    background: #a534c7;
     color: white;
     border: none;
     border-radius: 8px;
@@ -58,7 +102,7 @@
   
   .generate-button:hover,
   .export-button:hover {
-    background: #0056b3;
+    background: #7b58fa;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
@@ -118,7 +162,7 @@
   
   .transaction-card {
     padding: 1rem;
-    background: #f9f9f9;
+    background: #bb9af1;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;

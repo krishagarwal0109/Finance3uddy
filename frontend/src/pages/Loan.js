@@ -153,9 +153,16 @@ const LoanPlatform = () => {
       category: "",
     });
   };
-
+  const backgroundImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/loans.jpg)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+  
   return (
-    <div className="loan-platform-container">
+    <div className="loan-platform-container" >
+      <div className="animated-background" style={backgroundImage}></div>
+
       <h1>Loan Comparison and Application Platform</h1>
 
       <div className="loan-listing">
@@ -237,7 +244,6 @@ const LoanPlatform = () => {
         ))}
       </div>
 
-      {/* Loan Application Tracking */}
       <div className="loan-applications">
         <h2>Your Loan Applications</h2>
         {applications.length > 0 ? (
@@ -256,7 +262,6 @@ const LoanPlatform = () => {
         )}
       </div>
 
-      {/* Edit Application Modal */}
       {showEdit && (
         <div className="modal-overlay">
           <div className="modal">

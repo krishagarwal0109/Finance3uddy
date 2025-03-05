@@ -1,3 +1,34 @@
+.transactions {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.7); 
+}
+
+.transactions::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: moveBackground 30s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.1) translateX(-10%);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
 
 .transactions-container {
   max-width: 800px;
@@ -49,7 +80,6 @@ h2 {
   color: blue;
   text-decoration: underline;
 }
-
 
 .add-transaction {
   background: rgba(255, 255, 255, 0.9);
@@ -120,7 +150,6 @@ input:focus {
   transform: scale(1.05);
 }
 
-
 .transaction-card {
   background: rgba(255, 255, 255, 0.9);
   padding: 20px;
@@ -177,7 +206,6 @@ input:focus {
   gap: 10px;
 }
 
-
 .modal {
   position: fixed;
   top: 50%;
@@ -200,7 +228,6 @@ input:focus {
   background-color: #f44336;
 }
 
-
 body {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
@@ -216,5 +243,32 @@ body {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .add-transaction {
+    padding: 10px;
+  }
+
+  .transaction-card {
+    padding: 10px;
+  }
+
+  .card-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .tag {
+    font-size: 10px;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 15px;
   }
 }
