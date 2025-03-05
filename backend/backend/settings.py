@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-n12zb)bn9!2yexjtv&ikpi(nppwei-0wc(meticeiqbtcl765v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['finance3uddy-2.onrender.com']
 
 
 # Application definition
@@ -80,7 +80,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',  
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000","https://finance3uddy-production.up.railway.app",
+    "http://localhost:3000","https://your-react-app.netlify.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
