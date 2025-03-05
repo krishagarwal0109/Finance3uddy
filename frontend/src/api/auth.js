@@ -110,11 +110,11 @@ export const getGoogleAuthUrl = () => {
 };
 
 export const signup = async (userData) => {
-    return await axios.post(`${API_URL}signup/`, userData);
+    return await axios.post(`${apiUrl}signup/`, userData);
 };
 
 export const login = async (credentials) => {
-    return await axios.post(`${API_URL}login/`, credentials);
+    return await axios.post(`${apiUrl}login/`, credentials);
 };
 
-export const googleLogin = (token) => axios.post(`${API_URL}google/`, { access_token: token });
+export const googleLogin = (token) => axios.post(`${apiUrl}google/`, { access_token: token });
