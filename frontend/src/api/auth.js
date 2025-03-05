@@ -21,11 +21,11 @@ export const refreshToken = async (refresh) => {
   return await response.json();
 };
 
-export const registerUser = async (username, email, password1) => {
+export const registerUser = async (username, email, password1,password2) => {
   const response = await fetch(`${apiUrl}/api/auth/registration/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, email, password1}),
+    body: JSON.stringify({ username, email, password1,password2}),
   });
   return await response.json();
 };
