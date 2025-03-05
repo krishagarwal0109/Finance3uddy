@@ -1,6 +1,7 @@
-import React from "react";
+export const { login, logout, setAuthorizedUser } = authSlice.actions;
+export default authSlice.reducer;import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import LandingPage from "./pages/home";
 import Login from "./pages/login";
@@ -16,6 +17,8 @@ import Dues from "./pages/Dues";
 import Budgeting from "./pages/Budgeting";
 import CustomReports from "./pages/CustomReport";
 import LoanPlatform from "./pages/Loan";
+import { fetchAuthorizedUser } from "./api";
+import { setAuthorizedUser } from "./store/authSlice";
 
 const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -25,6 +28,22 @@ const ProtectedRoute = ({ element }) => {
 };
 
 const App = () => {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const accessToken = useSelector((state) => state.auth.accessToken);
+
+  useEffect(() => {
+    if (isAuthenticated && accessToken) {
+      fetchAuthorizedUser(accessToken)
+        .then((data) => {
+          dispatch(setAuthorizedUser(data));
+        })
+        .catch((err) => {
+          console.error("Error fetching authorized user:", err);
+        });
+    }
+  }, [isAuthenticated, accessToken, dispatch]);
+
   return (
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <TransactionProvider>
@@ -42,7 +61,6 @@ const App = () => {
           <Route path="/budgeting" element={<ProtectedRoute element={<Budgeting />} />} />
           <Route path="/customreport" element={<ProtectedRoute element={<CustomReports />} />} />
           <Route path="/loans" element={<ProtectedRoute element={<LoanPlatform />} />} />
-
         </Routes>
       </TransactionProvider>
     </GoogleOAuthProvider>
@@ -50,3 +68,4 @@ const App = () => {
 };
 
 export default App;
+
