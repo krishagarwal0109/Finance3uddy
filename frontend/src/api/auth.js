@@ -7,8 +7,8 @@ export const signup = async (userData) => {
 };
 
 export const login = async (credentials) => {
-    return await axios.post(`${API_URL}api/auth/login/`, credentials);
+    return await axios.post(`${API_URL}/api/auth/login/`, credentials);
 };
 
 export const googleLogin = (token) => 
-    axios.post(`${API_URL}api/auth/google/`, { access_token: token });
+    axios.post(`${API_URL}/api/auth/google/`, { access_token: token });
