@@ -26,8 +26,12 @@ const Login = () => {
     }
   };
 
+
   const handleGoogleLogin = async (credentialResponse) => {
     try {
+        
+   
+      
       const csrfResponse = await fetch("https://finance3uddy-2.onrender.com/api/auth/csrf/", {
         credentials: "include",
       });
@@ -85,11 +89,11 @@ const Login = () => {
       </form>
 
       <div className="google-login-container">
-        <GoogleLogin
-          onSuccess={handleGoogleLogin}
-          onError={() => console.error("Google Login Error")}
-        />
-      </div>
+     <GoogleLogin
+    onSuccess={handleGoogleLogin}
+    onError={() => console.error("Google Login Error")}
+    />
+</div>
     </div>
   );
 };

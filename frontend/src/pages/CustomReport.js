@@ -84,13 +84,13 @@ const CustomReports = () => {
     document.body.removeChild(link);
   };
 
-  const backgroundImage = {
-    backgroundImage: url(${process.env.PUBLIC_URL}/transco.jpg),
+ const backgroundImage = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/transco.jpg)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }; 
   const bgImage = {
-    backgroundImage: url(${process.env.PUBLIC_URL}/trans1.png),
+    backgroundImage: `url(${process.env.PUBLIC_URL}/trans1.png)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
@@ -102,23 +102,45 @@ const CustomReports = () => {
 
       <div className="controls">
         <div className="date-range">
-          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="date-input" />
-          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="date-input" />
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="date-input"
+          />
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            className="date-input"
+          />
         </div>
 
-        <select value={reportType} onChange={(e) => setReportType(e.target.value)} className="select-input">
+        <select
+          value={reportType}
+          onChange={(e) => setReportType(e.target.value)}
+          className="select-input"
+        >
           <option value="summary">Summary Report</option>
           <option value="detailed">Detailed Report</option>
         </select>
 
-        <select value={filterType} onChange={(e) => setFilterType(e.target.value)} className="select-input">
+        <select
+          value={filterType}
+          onChange={(e) => setFilterType(e.target.value)}
+          className="select-input"
+        >
           <option value="all">All</option>
           <option value="income">Income</option>
           <option value="expense">Expense</option>
         </select>
 
         {filterType !== "all" && (
-          <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className="select-input">
+          <select
+            value={filterCategory}
+            onChange={(e) => setFilterCategory(e.target.value)}
+            className="select-input"
+          >
             <option value="">Select Category</option>
             {(filterType === "income" ? incomeCategories : expenseCategories).map(category => (
               <option key={category} value={category}>{category}</option>
@@ -135,23 +157,24 @@ const CustomReports = () => {
         <div className="report-results animated-fade-in">
           <h3 className="report-title">Report Results</h3>
           {reportType === "summary" ? (
-            <div className="summary-report">
-              <div className="summary-card">
-                <h4>Total Income</h4>
-                <p className="income">₹{generatedReport.totalIncome.toFixed(2)}</p>
-              </div>
-              <div className="summary-card">
-                <h4>Total Expense</h4>
-                <p className="expense">₹{generatedReport.totalExpense.toFixed(2)}</p>
-              </div>
-              <div className="summary-card">
-                <h4>Net Savings</h4>
-                <p className="net-savings">₹{generatedReport.netSavings.toFixed(2)}</p>
-              </div>
-            </div>
+              <div className="summary-report">
+                  <div className="summary-card">
+                      <h4>Total Income</h4>
+                      <p className="income">₹{generatedReport.totalIncome.toFixed(2)}</p>
+                  </div>
+                  <div className="summary-card">
+                      <h4>Total Expense</h4>
+                      <p className="expense">₹{generatedReport.totalExpense.toFixed(2)}</p>
+                  </div>
+                  <div className="summary-card">
+                      <h4>Net Savings</h4>
+                      <p className="net-savings">₹{generatedReport.netSavings.toFixed(2)}</p>
+                  </div>
+             </div>
           ) : (
             <div className="detailed-report">
-              {(reportType === "detailed" ? generatedReport : generatedReport.transactions)?.map(transaction => (
+             {(reportType === "detailed" ? generatedReport : generatedReport.transactions)?.map(transaction => (
+
                 <div key={transaction.id} className="transaction-card animated-slide-in">
                   <h3>{transaction.category} - ₹{transaction.amount}</h3>
                   <p>{transaction.desc}</p>

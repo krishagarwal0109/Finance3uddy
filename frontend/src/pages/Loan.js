@@ -149,7 +149,7 @@ const LoanPlatform = () => {
       min_loan_amount: "",
       max_loan_amount: "",
       min_tenure: "",
-      max_tenure: "",
+      max_tenure: "", 
       category: "",
     });
   };
@@ -160,7 +160,7 @@ const LoanPlatform = () => {
   };
   
   return (
-    <div className="loan-platform-container">
+    <div className="loan-platform-container" >
       <div className="animated-background" style={backgroundImage}></div>
 
       <h1>Loan Comparison and Application Platform</h1>
