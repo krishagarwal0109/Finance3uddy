@@ -80,7 +80,7 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',  
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000","https://your-react-app.netlify.app",
+    "https://finance3uddy-production.up.railway.app","https://regal-gelato-af0006.netlify.app"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -207,5 +207,5 @@ ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 REST_USE_JWT = True
-CSRF_TRUSTED_ORIGINS = ["https://finance3uddy-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://finance3uddy-production.up.railway.app","https://regal-gelato-af0006.netlify.app"]
 
