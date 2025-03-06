@@ -18,7 +18,7 @@ const GoalTracking = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get("http://localhost:8000/api/goals/", {
+        const response = await axios.get("https://finance3uddy-2.onrender.com/api/goals/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setGoals(response.data);
@@ -49,7 +49,7 @@ const GoalTracking = () => {
     }
 
     try {
-      await axios.post("http://localhost:8000/api/goals/", goalData, {
+      await axios.post("https://finance3uddy-2.onrender.com/api/goals/", goalData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       refreshGoals();
@@ -70,7 +70,7 @@ const GoalTracking = () => {
     if (!editingGoal) return;
     
     try {
-      await axios.put(`http://localhost:8000/api/goals/${editingGoal.id}/`, editingGoal, {
+      await axios.put(`https://finance3uddy-2.onrender.com/api/goals/${editingGoal.id}/`, editingGoal, {
         headers: { Authorization: `Bearer ${token}` },
       });
       refreshGoals();
@@ -92,7 +92,7 @@ const GoalTracking = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:8000/api/goals/${id}/`, {
+      await axios.delete(`https://finance3uddy-2.onrender.com/api/goals/${id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       refreshGoals();
@@ -106,7 +106,7 @@ const GoalTracking = () => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/goals/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/goals/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGoals(response.data);

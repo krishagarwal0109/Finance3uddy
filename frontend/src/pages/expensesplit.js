@@ -40,7 +40,7 @@ const ExpenseSplit = () => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/expensesplit/groups/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/expensesplit/groups/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGroups(response.data);
@@ -55,7 +55,7 @@ const ExpenseSplit = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/expensesplit/groups/${selectedGroup.id}/expenses/`,
+        `https://finance3uddy-2.onrender.com/api/expensesplit/groups/${selectedGroup.id}/expenses/`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -72,7 +72,7 @@ const ExpenseSplit = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/expensesplit/groups/${selectedGroup.id}/transactions/`,
+        `https://finance3uddy-2.onrender.com/api/expensesplit/groups/${selectedGroup.id}/transactions/`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -99,7 +99,7 @@ const ExpenseSplit = () => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/users/authorized/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/users/authorized/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAuthorizedUsers(response.data);
@@ -113,7 +113,7 @@ const ExpenseSplit = () => {
     if (!token) return;
 
     try {
-      const response = await axios.get(`http://localhost:8000/api/users/${userId}/`, {
+      const response = await axios.get(`https://finance3uddy-2.onrender.com/api/users/${userId}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return response.data;
@@ -141,7 +141,7 @@ const ExpenseSplit = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/expensesplit/groups/",
+        "https://finance3uddy-2.onrender.com/api/expensesplit/groups/",
         {
           name: groupName,
           members: selectedMembers,
@@ -166,12 +166,12 @@ const ExpenseSplit = () => {
 
     try {
       await axios.post(
-        `http://localhost:8000/api/expensesplit/groups/${selectedGroup.id}/add_members/`,
+        `https://finance3uddy-2.onrender.com/api/expensesplit/groups/${selectedGroup.id}/add_members/`,
         { members: selectedMembers },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const updatedGroupResponse = await axios.get(
-        `http://localhost:8000/api/expensesplit/groups/${selectedGroup.id}/`,
+        `https://finance3uddy-2.onrender.com/api/expensesplit/groups/${selectedGroup.id}/`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -199,7 +199,7 @@ const ExpenseSplit = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/expensesplit/groups/${selectedGroup.id}/transactions/`,
+        `https://finance3uddy-2.onrender.com/api/expensesplit/groups/${selectedGroup.id}/transactions/`,
         {
           amount: parseFloat(transactionData.amount),
           description: transactionData.description,
@@ -228,7 +228,7 @@ const ExpenseSplit = () => {
 
     try {
       await axios.post(
-        `http://localhost:8000/api/expensesplit/groups/${selectedGroup.id}/complete/`,
+        `https://finance3uddy-2.onrender.com/api/expensesplit/groups/${selectedGroup.id}/complete/`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

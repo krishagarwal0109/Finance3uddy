@@ -18,6 +18,7 @@ const Transactions = () => {
   useEffect(() => {
     fetchTransactions();
   }, []);
+  
   const handleCSVUpload = (event) => {
     setCsvFile(event.target.files[0]);
   };
@@ -61,8 +62,6 @@ const Transactions = () => {
       header: false,
     });
   };
-
-
 
   const handleChange = (e, type) => {
     const { name, value } = e.target;
@@ -140,9 +139,8 @@ const Transactions = () => {
     backgroundPosition: "center",
   };
   return (
-
-    <div className="transactions-container" style={transactionImage} >
-    <div className="animated-background" style={backgroundImage}></div>
+    <div className="transactions-container" style={transactionImage}>
+      <div className="animated-background" style={backgroundImage}></div>
 
       <h2>Transactions</h2>
 
@@ -152,11 +150,10 @@ const Transactions = () => {
         </p>
       ) : (
         <>
-
-     <div className="csv-upload">
-        <input type="file" accept=".csv" onChange={handleCSVUpload} />
-        <button className="btn upload" onClick={handleCSVImport}>Import CSV</button>
-      </div>
+          <div className="csv-upload">
+            <input type="file" accept=".csv" onChange={handleCSVUpload} />
+            <button className="btn upload" onClick={handleCSVImport}>Import CSV</button>
+          </div>
           <div className="add-transaction income">
             <h3>Add Income</h3>
             <select name="category" value={incomeData.category} onChange={(e) => handleChange(e, "income")}>

@@ -26,13 +26,9 @@ const Login = () => {
     }
   };
 
-
   const handleGoogleLogin = async (credentialResponse) => {
     try {
-        
-   
-      
-      const csrfResponse = await fetch("http://localhost:8000/api/auth/csrf/", {
+      const csrfResponse = await fetch("https://finance3uddy-2.onrender.com/api/auth/csrf/", {
         credentials: "include",
       });
       const csrfData = await csrfResponse.json();
@@ -40,7 +36,7 @@ const Login = () => {
       
       const token = credentialResponse.credential;
       console.log("Received Google token:", token);
-      const res = await fetch("http://localhost:8000/api/auth/google/", {
+      const res = await fetch("https://finance3uddy-2.onrender.com/api/auth/google/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,11 +85,11 @@ const Login = () => {
       </form>
 
       <div className="google-login-container">
-     <GoogleLogin
-    onSuccess={handleGoogleLogin}
-    onError={() => console.error("Google Login Error")}
-    />
-</div>
+        <GoogleLogin
+          onSuccess={handleGoogleLogin}
+          onError={() => console.error("Google Login Error")}
+        />
+      </div>
     </div>
   );
 };

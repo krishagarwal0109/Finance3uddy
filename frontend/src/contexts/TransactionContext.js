@@ -28,7 +28,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/transactions/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/transactions/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTransactions(response.data);
@@ -42,7 +42,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/transactions/weekly/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/transactions/weekly/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setWeeklyData(response.data);
@@ -56,7 +56,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/transactions/monthly/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/transactions/monthly/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMonthlyData(response.data);
@@ -70,7 +70,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/transactions/yearly/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/transactions/yearly/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setYearlyData(response.data);
@@ -84,7 +84,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/transactions/category/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/transactions/category/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCategoryData(response.data);
@@ -107,7 +107,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.post("http://localhost:8000/api/transactions/", data, {
+      const response = await axios.post("https://finance3uddy-2.onrender.com/api/transactions/", data, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTransactions((prev) => [...prev, response.data]);
@@ -121,7 +121,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      await axios.put(`http://localhost:8000/api/transactions/${id}/`, updatedData, {
+      await axios.put(`https://finance3uddy-2.onrender.com/api/transactions/${id}/`, updatedData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -138,7 +138,7 @@ export const TransactionProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/transactions/${id}/`, {
+      await axios.delete(`https://finance3uddy-2.onrender.com/api/transactions/${id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

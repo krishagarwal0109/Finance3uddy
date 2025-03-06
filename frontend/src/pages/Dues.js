@@ -25,7 +25,7 @@ const Dues = ({ user }) => {
       if (!token) return;
 
       try {
-        const response = await axios.get("http://localhost:8000/api/dues/", {
+        const response = await axios.get("https://finance3uddy-2.onrender.com/api/dues/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setDues(response.data);
@@ -56,7 +56,7 @@ const Dues = ({ user }) => {
     }
 
     try {
-      await axios.post("http://localhost:8000/api/dues/", dueData, {
+      await axios.post("https://finance3uddy-2.onrender.com/api/dues/", dueData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       refreshDues();
@@ -78,7 +78,7 @@ const Dues = ({ user }) => {
     if (!token || !editingDue) return;
 
     try {
-      await axios.put(`http://localhost:8000/api/dues/${editingDue.id}/`, editingDue, {
+      await axios.put(`https://finance3uddy-2.onrender.com/api/dues/${editingDue.id}/`, editingDue, {
         headers: { Authorization: `Bearer ${token}` },
       });
       refreshDues();
@@ -94,7 +94,7 @@ const Dues = ({ user }) => {
     if (!token) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/dues/${id}/`, {
+      await axios.delete(`https://finance3uddy-2.onrender.com/api/dues/${id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       refreshDues();
@@ -108,7 +108,7 @@ const Dues = ({ user }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:8000/api/dues/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/dues/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setDues(response.data);

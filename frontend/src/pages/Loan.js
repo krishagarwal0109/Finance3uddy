@@ -29,7 +29,7 @@ const LoanPlatform = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get("http://localhost:8000/api/loans/loans/", {
+        const response = await axios.get("https://finance3uddy-2.onrender.com/api/loans/loans/", {
           headers: { Authorization: `Bearer ${token}` },
           params: filters,
         });
@@ -48,7 +48,7 @@ const LoanPlatform = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get("http://localhost:8000/api/loans/applications/", {
+        const response = await axios.get("https://finance3uddy-2.onrender.com/api/loans/applications/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setApplications(response.data);
@@ -75,14 +75,14 @@ const LoanPlatform = () => {
 
     try {
       await axios.post(
-        "http://localhost:8000/api/loans/apply/",
+        "https://finance3uddy-2.onrender.com/api/loans/apply/",
         { loan: loanId, amount },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert("Loan application submitted successfully!");
       setAmount("");
       setSelectedLoanId(null);
-      const response = await axios.get("http://localhost:8000/api/loans/applications/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/loans/applications/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setApplications(response.data);
@@ -103,11 +103,11 @@ const LoanPlatform = () => {
 
     try {
       await axios.put(
-        `http://localhost:8000/api/loans/applications/${editingApplication.id}/`,
+        `https://finance3uddy-2.onrender.com/api/loans/applications/${editingApplication.id}/`,
         editingApplication,
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      const response = await axios.get("http://localhost:8000/api/loans/applications/", {
+      const response = await axios.get("https://finance3uddy-2.onrender.com/api/loans/applications/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setApplications(response.data);
@@ -129,10 +129,10 @@ const LoanPlatform = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this application?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:8000/api/loans/applications/${id}/`, {
+        await axios.delete(`https://finance3uddy-2.onrender.com/api/loans/applications/${id}/`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        const response = await axios.get("http://localhost:8000/api/loans/applications/", {
+        const response = await axios.get("https://finance3uddy-2.onrender.com/api/loans/applications/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setApplications(response.data);
@@ -149,7 +149,7 @@ const LoanPlatform = () => {
       min_loan_amount: "",
       max_loan_amount: "",
       min_tenure: "",
-      max_tenure: "", 
+      max_tenure: "",
       category: "",
     });
   };
@@ -160,7 +160,7 @@ const LoanPlatform = () => {
   };
   
   return (
-    <div className="loan-platform-container" >
+    <div className="loan-platform-container">
       <div className="animated-background" style={backgroundImage}></div>
 
       <h1>Loan Comparison and Application Platform</h1>
